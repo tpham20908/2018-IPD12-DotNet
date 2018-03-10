@@ -5,36 +5,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentGrades
+namespace StudentsGrades
 {
     class Program
     {
         static void Main(string[] args)
         {
-            String text = File.ReadAllText(@"../../../grades.txt");
-            Console.WriteLine(text);
-
-            String[] lines = File.ReadAllLines(@"../../../grades.txt");
-            foreach(String line in lines)
+            try
             {
-                string[] tokens = line.Split(':');
-                string name = tokens[0];
-                string strGPA = tokens[1];
-                string[] arrGPA = strGPA.Split(',');
-                string result = "";
-                foreach (String gpa in arrGPA)
+                string[] lines = File.ReadAllLines(@"../../../grades.txt");
+                foreach (string line in lines)
                 {
-                    result += letterToNumberGrade(gpa) + " ";
+                    string name = line.Split(':')[0];
+                    string strGpa = line.Split(':')[1];
+                    string[] arrGpa = strGpa.Split(',');
+                    string result = "";
+                    foreach (string gpa in arrGpa)
+                    {
+                        result += letterToNumberGrade(gpa) + " ";
+                    }
+                    Console.WriteLine("{0} has GPA {1}", name, result);
                 }
-                Console.WriteLine("{0} has GPA {1}", name, result);
+                Console.ReadLine();
             }
-            Console.ReadLine();
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("Error finding file: " + ex.Message);
+            }
+            
         }
 
-        static double letterToNumberGrade(string strGrade)
+        static double letterToNumberGrade (string letter)
         {
             double grade = 0;
-            switch (strGrade)
+            switch (letter)
             {
                 case "A":
                     grade = 4.00;

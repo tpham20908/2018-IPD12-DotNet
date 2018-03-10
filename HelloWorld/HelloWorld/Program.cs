@@ -86,7 +86,7 @@ namespace HelloWorld
 
         static int Max(List<int> list)
         {
-            int max = list[0];
+            int max = 0;
             foreach (int item in list)
             {
                 if (item > max)
