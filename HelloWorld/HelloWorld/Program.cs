@@ -27,7 +27,7 @@ namespace HelloWorld
         static void WriteText(List<int> list)
         {
             String line = String.Join(";", list);
-            File.WriteAllText("output.txt", line);
+            File.WriteAllText("../../output.txt", line);
 
             /*
             TextWriter tw = new StreamWriter("../../output.txt");
