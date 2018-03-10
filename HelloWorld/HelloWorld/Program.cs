@@ -28,13 +28,15 @@ namespace HelloWorld
         {
             String line = String.Join(";", list);
             File.WriteAllText("output.txt", line);
-            
+
+            /*
             TextWriter tw = new StreamWriter("../../output.txt");
             foreach (int item in list)
             {
                 tw.WriteLine("{0};", item);
             }
             tw.Close();
+            */
         }
 
         static void AddList(List<int> list)
