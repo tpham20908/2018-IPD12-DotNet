@@ -37,61 +37,14 @@ namespace PeopleAgain
                 Console.WriteLine(p.ToString());
             }
 
-            Console.ReadLine();
-            /*
-            try
+            List<Person> SortedPeopleList = PeopleList.OrderBy(o => o.Name).ToList();
+            Console.WriteLine("=== Sort people list by name ===");
+            foreach (Person p in SortedPeopleList)
             {
-                Console.WriteLine("Enter your name: ");
-                String _name = Console.ReadLine();
-                Console.WriteLine("Enter your age: ");
-                String _ageStr = Console.ReadLine();
-                Console.WriteLine("Enter your GPA: ");
-                String _gpaStr = Console.ReadLine();
-                Console.WriteLine("Enter your program: ");
-                String _program = Console.ReadLine();
-                Console.WriteLine("Enter your subject: ");
-                String _subject = Console.ReadLine();
-                Console.WriteLine("Enter your experience: ");
-                String _experienceStr = Console.ReadLine();
-                Person p, s, t;
-                if (int.TryParse(_ageStr, out int _age))
-                {
-                    p = new Person(_name, _age);
-                }
-                else
-                {
-                    throw new InvalidDataException("Wrong input for age");
-                }
-                if (Double.TryParse(_gpaStr, out Double _gpa))
-                {
-                    s = new Student(_name, _age, _gpa, _program);
-                }
-                else
-                {
-                    throw new InvalidDataException("Wrong input for GPA");
-                }
-                if (int.TryParse(_experienceStr, out int _experience))
-                {
-                    t = new Teacher(_name, _age, _subject, _experience);
-                }
-                else
-                {
-                    throw new InvalidDataException("Wrong input for GPA");
-                }
                 Console.WriteLine(p.ToString());
-                Console.WriteLine(s.ToString());
-                Console.WriteLine(t.ToString());
             }
-            catch (InvalidDataException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            catch (IndexOutOfRangeException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-            */
 
+            Console.ReadLine();
         }
 
         static void addList(String type, String detail)
@@ -184,8 +137,7 @@ namespace PeopleAgain
 
         public override string ToString()
         {
-            return "Teacher " + base.ToString() 
-                + String.Format(", subject {0}, {1} year(s) experience", _subject, _experience);
+            return base.ToString() + String.Format(", subject {0}, {1} year(s) experience", _subject, _experience);
         }
     }
 
@@ -233,7 +185,7 @@ namespace PeopleAgain
 
         public override string ToString()
         {
-            return "Student " + base.ToString() + String.Format(", GPA {0}, program {1}", _gpa, _program);
+            return base.ToString() + String.Format(", GPA {0}, program {1}", _gpa, _program);
         }
     }
 
