@@ -26,7 +26,7 @@ namespace JustNumbers
         static void writing(List<int> list)
         {
             string line = string.Join(";", list);
-            File.WriteAllText("../../../output.txt", line);
+            File.WriteAllText("../../output.txt", line);
         }
 
         static double stdDeviation(List<int> list)
