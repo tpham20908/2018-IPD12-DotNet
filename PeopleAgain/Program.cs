@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,17 +18,36 @@ namespace PeopleAgain
                 String _name = Console.ReadLine();
                 Console.WriteLine("Enter your age: ");
                 String _ageStr = Console.ReadLine();
+                Person p;
                 if (Int32.TryParse(_ageStr, out int _age))
                 {
-                    Person p = new Person(_name, _age);
+                    p = new Person(_name, _age);
                 }
+                else
+                {
+                    throw new InvalidDataException("Wrong input for age");
+
+                }
+                Console.WriteLine(p.ToString());
             }
-            catch (Exception ex)
+            catch (InvalidDataException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (IndexOutOfRangeException ex)
             {
                 Console.WriteLine(ex.Message);
             }
             
             Console.ReadLine();
+        }
+    }
+
+    class Student : Person
+    {
+        public Student (String _name, int _age, double _gpa, String _program) : base (_name, _age)
+        {
+
         }
     }
 
@@ -75,10 +95,15 @@ namespace PeopleAgain
                 }
                 else
                 {
-                    throw new Exception("Wrong format.");
+                    throw new InvalidDataException("Name is wrong formatted");
                     // Console.WriteLine("Not matched!");
                 }
             }
+        }
+
+        override public String ToString()
+        {
+            return String.Format("{0} {1} years old", Name, Age);
         }
     }
 }
