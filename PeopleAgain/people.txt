@@ -1,0 +1,7 @@
+Person:Jerry,23
+Cookie:GetMe
+
+Student:Maria,32,3.89,PhysEd
+Student:Martha,32,4.11,PhysEd,McGill
+Student:Alfred,29,4.51,PhysEd
+Teacher:Tim,45,Math,19

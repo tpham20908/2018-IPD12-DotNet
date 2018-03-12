@@ -10,8 +10,25 @@ namespace PeopleAgain
 {
     class Program
     {
+        static List<Person> PeopleList = new List<Person>();
+
         static void Main(string[] args)
         {
+            try
+            {
+                String[] lines = File.ReadAllLines(@"../../people.txt");
+                foreach (String line in lines)
+                {
+                    Console.WriteLine(line);
+                }
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine("File not found." + ex.Message);
+            }
+
+            Console.ReadLine();
+            /*
             try
             {
                 Console.WriteLine("Enter your name: ");
@@ -26,9 +43,7 @@ namespace PeopleAgain
                 String _subject = Console.ReadLine();
                 Console.WriteLine("Enter your experience: ");
                 String _experienceStr = Console.ReadLine();
-                Person p;
-                Student s;
-                Teacher t;
+                Person p, s, t;
                 if (int.TryParse(_ageStr, out int _age))
                 {
                     p = new Person(_name, _age);
@@ -65,8 +80,8 @@ namespace PeopleAgain
             {
                 Console.WriteLine(ex.Message);
             }
-            
-            Console.ReadLine();
+            */
+
         }
     }
 
