@@ -18,7 +18,12 @@ namespace PeopleAgain
                 String _name = Console.ReadLine();
                 Console.WriteLine("Enter your age: ");
                 String _ageStr = Console.ReadLine();
+                Console.WriteLine("Enter your GPA: ");
+                String _gpaStr = Console.ReadLine();
+                Console.WriteLine("Enter your program: ");
+                String _program = Console.ReadLine();
                 Person p;
+                Student s;
                 if (Int32.TryParse(_ageStr, out int _age))
                 {
                     p = new Person(_name, _age);
@@ -26,7 +31,14 @@ namespace PeopleAgain
                 else
                 {
                     throw new InvalidDataException("Wrong input for age");
-
+                }
+                if (Int32.TryParse(_gpaStr, out int _gpa))
+                {
+                    s = new Student(_name, _age, _gpa, _program);
+                }
+                else
+                {
+                    throw new InvalidDataException("Wrong input for GPA");
                 }
                 Console.WriteLine(p.ToString());
             }
@@ -47,7 +59,47 @@ namespace PeopleAgain
     {
         public Student (String _name, int _age, double _gpa, String _program) : base (_name, _age)
         {
+            GPA = _gpa;
+            Program = _program;
+        }
 
+        private double _gpa;
+        public double GPA
+        {
+            get
+            {
+                return _gpa;
+            }
+            set
+            {
+                if (value < 0 || value > 4.3)
+                {
+                    throw new InvalidDataException("GPA must be in between 0 and 4.3");
+                }
+                _gpa = value;
+            }
+        }
+
+        private String _program;
+        public String Program
+        {
+            get
+            {
+                return _program;
+            }
+            set
+            {
+                if (value.Length > 20)
+                {
+                    throw new InvalidDataException("Name of Program cannot exceed 20 characters long.");
+                }
+                _program = value;
+            }
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + String.Format(", GPA {0}, program {1}", _gpa, _program);
         }
     }
 
@@ -77,7 +129,6 @@ namespace PeopleAgain
         }
 
         private String _name;
-
         public String Name
         {
             get
