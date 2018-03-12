@@ -11,8 +11,8 @@ namespace StudentGrades
     {
         static void Main(string[] args)
         {
-            String text = File.ReadAllText(@"../../../grades.txt");
-            Console.WriteLine(text);
+            // String text = File.ReadAllText(@"../../../grades.txt");
+            // Console.WriteLine(text);
 
             String[] lines = File.ReadAllLines(@"../../../grades.txt");
             foreach(String line in lines)
