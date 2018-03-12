@@ -19,12 +19,22 @@ namespace PeopleAgain
                 String[] lines = File.ReadAllLines(@"../../people.txt");
                 foreach (String line in lines)
                 {
-                    Console.WriteLine(line);
+                    if (!line.Equals(""))
+                    {
+                        String type = line.Split(':')[0];
+                        String detail = line.Split(':')[1];
+                        addList(type, detail);
+                    }
                 }
             }
             catch (FileNotFoundException ex)
             {
                 Console.WriteLine("File not found." + ex.Message);
+            }
+
+            foreach (Person p in PeopleList)
+            {
+                Console.WriteLine(p.ToString());
             }
 
             Console.ReadLine();
@@ -82,6 +92,51 @@ namespace PeopleAgain
             }
             */
 
+        }
+
+        static void addList(String type, String detail)
+        {
+            String[] info = detail.Split(',');
+            String name = info[0];
+            int age;
+            switch (type)
+            {
+                case "Person":
+                    if (int.TryParse(info[1], out age)) {
+                        PeopleList.Add(new Person(name, age));
+                    }
+                    else
+                    {
+                        throw new InvalidDataException("Wrong input for age");
+                    }
+                    break;
+                case "Student":
+                    String program = info[3];
+                    if (int.TryParse(info[1], out age) &&
+                        double.TryParse(info[2], out double gpa))
+                    {
+                        PeopleList.Add(new Student(name, age, gpa, program));
+                    }
+                    else
+                    {
+                        throw new InvalidDataException("Wrong input for age or gpa");
+                    }
+                    break;
+                case "Teacher":
+                    String subject = info[2];
+                    if (int.TryParse(info[1], out age) && 
+                        int.TryParse(info[3], out int experience))
+                    {
+                        PeopleList.Add(new Teacher(name, age, subject, experience));
+                    }
+                    else
+                    {
+                        throw new InvalidDataException("Wrong input for age or experience");
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
 
