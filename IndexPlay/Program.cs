@@ -10,6 +10,7 @@ namespace IndexPlay
     {
         static void Main(string[] args)
         {
+            /*
             String10Storage strs = new String10Storage();
             strs[2] = "This index is stored by a string.";
             strs[3] = "This index is stored by another string.";
@@ -22,7 +23,46 @@ namespace IndexPlay
             {
                 Console.WriteLine(strs[i]);
             }
+            */
+
+            PrimeArray PA = new PrimeArray();
+            Console.WriteLine(PA[1]);
+            Console.WriteLine(PA[5]);
+            Console.WriteLine(PA[7]);
+            Console.WriteLine(PA[13]);
+            Console.WriteLine(PA[41]);
+            Console.WriteLine(PA[47]);
+
             Console.ReadLine();
+        }
+    }
+
+    class PrimeArray
+    {
+        public Boolean this[int pos]
+        {
+            get
+            {
+                return IsPrime(pos);
+            }
+        }
+
+        static Boolean IsPrime(int number)
+        {
+            if (number == 1) return true;
+            if (number == 2) return true;
+            if (number % 2 == 0) return false;
+
+            var boundary = (int)Math.Floor(Math.Sqrt(number));
+
+            for (int i = 3; i <= boundary; i += 2)
+            {
+                if (number % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 
