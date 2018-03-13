@@ -47,7 +47,7 @@ namespace IndexPlay
 
     class PrimeArray
     {
-        /*
+        
         public Boolean this[int pos]
         {
             get
@@ -55,8 +55,8 @@ namespace IndexPlay
                 return IsPrime(pos);
             }
         }
-        */
-
+        
+        /*
         public long this[int pos]
         {
             get
@@ -64,7 +64,7 @@ namespace IndexPlay
                 return FindPrime(pos);
             }
         }
-
+        */
         static Boolean IsPrime(int number)
         {
             if (number == 1) return true;
