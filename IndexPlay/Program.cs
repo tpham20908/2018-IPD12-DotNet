@@ -27,11 +27,19 @@ namespace IndexPlay
 
             PrimeArray PA = new PrimeArray();
             Console.WriteLine(PA[1]);
+            Console.WriteLine(PA[2]);
+            Console.WriteLine(PA[3]);
+            Console.WriteLine(PA[4]);
             Console.WriteLine(PA[5]);
+            Console.WriteLine(PA[6]);
             Console.WriteLine(PA[7]);
-            Console.WriteLine(PA[13]);
-            Console.WriteLine(PA[41]);
-            Console.WriteLine(PA[47]);
+            Console.WriteLine(PA[8]);
+            Console.WriteLine(PA[9]);
+            Console.WriteLine(PA[10]);
+            Console.WriteLine(PA[11]);
+            Console.WriteLine(PA[541]);
+            Console.WriteLine(PA[542]);
+            Console.WriteLine(PA[543]);
 
             Console.ReadLine();
         }
@@ -39,11 +47,21 @@ namespace IndexPlay
 
     class PrimeArray
     {
+        /*
         public Boolean this[int pos]
         {
             get
             {
                 return IsPrime(pos);
+            }
+        }
+        */
+
+        public long this[int pos]
+        {
+            get
+            {
+                return FindPrime(pos);
             }
         }
 
@@ -63,6 +81,22 @@ namespace IndexPlay
                 }
             }
             return true;
+        }
+
+        static long FindPrime(int number)
+        {
+            int count = 0;
+            long result = 0;
+            for (int i = 0; i < Math.Pow(2, 64); i++)
+            {
+                if (IsPrime(i)) count++;
+                if (count == number)
+                {
+                    result = i;
+                    break;
+                }
+            }
+            return result;
         }
     }
 
