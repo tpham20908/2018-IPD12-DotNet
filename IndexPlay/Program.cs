@@ -24,7 +24,7 @@ namespace IndexPlay
                 Console.WriteLine(strs[i]);
             }
             */
-
+            
             PrimeArray PA = new PrimeArray();
             Console.WriteLine(PA[1]);
             Console.WriteLine(PA[2]);
@@ -40,7 +40,7 @@ namespace IndexPlay
             Console.WriteLine(PA[541]);
             Console.WriteLine(PA[542]);
             Console.WriteLine(PA[543]);
-
+            
             Console.ReadLine();
         }
     }
@@ -115,15 +115,17 @@ namespace IndexPlay
     class String10Storage
     {
         private String[] data = new String[10];
-
+        
         public String10Storage()
         {
+            
             for (int i = 0; i < 10; i++)
             {
                 data[i] = "empty string";
             }
+           
         }
-
+        
         public String this[int pos]
         {
             get
