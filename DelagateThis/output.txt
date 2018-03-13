@@ -1,0 +1,3 @@
+Hello via delegate
+Hello via delegate
+Hello via delegate
