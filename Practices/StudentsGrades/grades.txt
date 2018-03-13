@@ -1,4 +1,0 @@
-Jerry:A-,B+,C,F
-Tom:B-
-Maria:B+,A+,D+
-Eva:A-,B-,B+
