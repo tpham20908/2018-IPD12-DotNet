@@ -47,7 +47,7 @@ namespace IndexPlay
 
     class PrimeArray
     {
-        
+        /*
         public Boolean this[int pos]
         {
             get
@@ -55,8 +55,8 @@ namespace IndexPlay
                 return IsPrime(pos);
             }
         }
+        */
         
-        /*
         public long this[int pos]
         {
             get
@@ -64,7 +64,7 @@ namespace IndexPlay
                 return FindPrime(pos);
             }
         }
-        */
+        
         static Boolean IsPrime(int number)
         {
             if (number == 1) return true;
@@ -87,6 +87,17 @@ namespace IndexPlay
         {
             int count = 0;
             long result = 0;
+            int index = 0;
+            while (true)
+            {
+                if (IsPrime(++index)) count++;
+                if (count == number)
+                {
+                    result = index;
+                    break;
+                }
+            }
+            /*
             for (int i = 0; i < Math.Pow(2, 64); i++)
             {
                 if (IsPrime(i)) count++;
@@ -96,6 +107,7 @@ namespace IndexPlay
                     break;
                 }
             }
+            */
             return result;
         }
     }
