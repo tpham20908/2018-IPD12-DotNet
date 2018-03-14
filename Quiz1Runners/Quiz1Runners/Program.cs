@@ -11,39 +11,45 @@ namespace Quiz1Runners
     {
         static void Main(string[] args)
         {
+            String[] lines = File.ReadAllLines(@"runners.txt");
+            //Dictionary<String, List<double>> RunnersRecords = new Dictionary<string, List<double>>();
+            List<double> ListTimes = new List<double>();
+            List<double> ListTimesEachRunner = new List<double>();
             List<Runner> ListRunners = new List<Runner>();
-            try
+            Runner r = new Runner();
+            int countRunner = 0;
+            int countRun = 0;
+            Runner runner = new Runner();
+            foreach (String line in lines)
             {
-                String[] lines = File.ReadAllLines(@"runners.txt");
-                Runner r = new Runner();
-                List<double> ListRunTimes = new List<double>();
-                foreach (String line in lines)
+                if (!double.TryParse(line, out double val))
                 {
-                    if (!double.TryParse(line, out double val))
+                    runner.Name = line;
+                    runner.runtimesList = ListTimesEachRunner;
+                    if (ListTimesEachRunner.Count != 0)
                     {
-                        r = new Runner();
-                        r.Name = line;
-                        r.runtimesList = ListRunTimes;
-                        ListRunners.Add(r);
-                        ListRunTimes = new List<double>();
+                        ListRunners.Add(runner);
                     }
-                    else
-                    {
-                        ListRunTimes.Add(val);
-                    }
+                    runner = new Runner();
+                    ListTimesEachRunner = new List<double>();
+                    countRunner++;
+                }
+                else
+                {
+                    ListTimes.Add(val);
+                    ListTimesEachRunner.Add(val);
                 }
             }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
 
-            foreach (Runner r in ListRunners)
+            foreach (Runner r1 in ListRunners)
             {
-                Console.WriteLine("{0} runs {1} time(s)", r.Name, r.runtimesList.Count);
-                Console.WriteLine("{0}'s average is {1:0.00}", r.Name, AvgTime(r.runtimesList));
+                Console.WriteLine("{0} ran {1} time(s)", r1.Name, r1.runtimesList.Count);
+                Console.WriteLine("{0}'s average is {1:0.00}", r1.Name, AvgTimeOfAll(r1.runtimesList));
             }
-
+            
+            Console.WriteLine("Average run time for all runners was {0}", AvgTimeOfAll(ListTimes));
+            Console.WriteLine("The fastest ran was {0}", FastestTime(ListTimes));
+            Console.WriteLine("There were {0} runners in total.", countRunner);
             Console.ReadLine();
         }
 
@@ -53,7 +59,7 @@ namespace Quiz1Runners
             return list[0];
         }
 
-        static double AvgTime(List<double> list)
+        static double AvgTimeOfAll(List<double> list)
         {
             double sumTime = 0;
             foreach (double time in list)
