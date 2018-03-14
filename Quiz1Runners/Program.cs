@@ -16,20 +16,17 @@ namespace Quiz1Runners
             {
                 String[] lines = File.ReadAllLines(@"runners.txt");
                 Runner r = new Runner();
-                List<double> ListRunTimes = new List<double>();
                 foreach (String line in lines)
                 {
                     if (!double.TryParse(line, out double val))
                     {
                         r = new Runner();
                         r.Name = line;
-                        r.runtimesList = ListRunTimes;
                         ListRunners.Add(r);
-                        ListRunTimes = new List<double>();
                     }
                     else
                     {
-                        ListRunTimes.Add(val);
+                        r.runtimesList.Add(val);
                     }
                 }
             }
@@ -38,11 +35,17 @@ namespace Quiz1Runners
                 Console.WriteLine(ex.Message);
             }
 
-            foreach (Runner r in ListRunners)
+            List<double> TotalRunTimesList = new List<double>();
+            var ListRunnersSortByAvgRunTime = from r in ListRunners orderby AvgTime(r.runtimesList) select r;
+            foreach (Runner r in ListRunnersSortByAvgRunTime)
             {
-                Console.WriteLine("{0} runs {1} time(s)", r.Name, r.runtimesList.Count);
-                Console.WriteLine("{0}'s average is {1:0.00}", r.Name, AvgTime(r.runtimesList));
+                TotalRunTimesList.AddRange(r.runtimesList);
+                
+                Console.WriteLine("{0} runs {1} time(s).", r.Name, r.runtimesList.Count);
+                Console.WriteLine("{0}'s average is {1:0.00}.", r.Name, AvgTime(r.runtimesList));
             }
+            Console.WriteLine("There were {0} runners in total.", ListRunners.Count);
+            Console.WriteLine("Average run time for all runners was {0:0.00}", AvgTime(TotalRunTimesList));
 
             Console.ReadLine();
         }
