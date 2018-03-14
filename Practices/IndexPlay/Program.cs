@@ -10,6 +10,7 @@ namespace IndexPlay
     {
         static void Main(string[] args)
         {
+            /*
             String10Storage strs = new String10Storage();
             strs[2] = "This index is stored by a string.";
             strs[3] = "This index is stored by another string.";
@@ -22,8 +23,62 @@ namespace IndexPlay
             {
                 Console.WriteLine(strs[i]);
             }
+            */
 
+            PrimeArray PA = new PrimeArray();
+
+            for (int i = 1; i < 30; i++)
+            {
+                Console.WriteLine("Prime number {0} is : {1}", i, PA[i]);
+            }
             Console.ReadLine();
+        }
+    }
+
+    class PrimeArray
+    {
+        /*
+        public bool this[int pos]
+        {
+            get
+            {
+                return IsPrime(pos);
+            }
+        }
+        */
+
+        public long this[int pos]
+        {
+            get
+            {
+                return FindPrime(pos);
+            }
+        }
+
+        public bool IsPrime(int number)
+        {
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0 && i != number) return false;
+            }
+            return true;
+        }
+
+        public long FindPrime (int number)
+        {
+            int count = 0;
+            int i = 0;
+            long result;
+            while (true)
+            {
+                if (IsPrime(++i)) count++;
+                if (count == number)
+                {
+                    result = i;
+                    break;
+                }
+            }
+            return result;
         }
     }
 
