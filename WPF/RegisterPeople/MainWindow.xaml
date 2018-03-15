@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RegisterPeople"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="314" Width="352">
     <Grid>
-        
+        <Label Content="Name&#xD;&#xA;" HorizontalAlignment="Left" Margin="45,24,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.763,0.769" Width="47" Height="26"/>
+        <Label Content="Age&#xD;&#xA;" HorizontalAlignment="Left" Margin="45,68,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="47"/>
+        <TextBox Name="tbName" HorizontalAlignment="Left" Height="23" Margin="119,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+        <TextBox Name="tbAge" HorizontalAlignment="Left" Height="23" Margin="119,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
+        <Label Content="Gender
+               " HorizontalAlignment="Left" Margin="45,109,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="57"/>
+        <RadioButton Name="rbtnM" Content="M
+                     " HorizontalAlignment="Left" Margin="121,115,0,0" VerticalAlignment="Top"/>
+        <RadioButton Name="rbtnOther" Content="Other
+                     " HorizontalAlignment="Left" Margin="253,115,-30,0" VerticalAlignment="Top"/>
+        <RadioButton Name="rbtnF" Content="F
+                     " HorizontalAlignment="Left" Margin="188,115,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pets" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="ckbxTiger" Content="Tiger" HorizontalAlignment="Left" Margin="119,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="Pets" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="ckbxLion" Content="Lion" HorizontalAlignment="Left" Margin="188,155,0,0" VerticalAlignment="Top"/>
+        <CheckBox Name="ckbxBear" Content="Bear" HorizontalAlignment="Left" Margin="253,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="Continent" HorizontalAlignment="Left" Margin="45,190,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cbbxContinent" HorizontalAlignment="Left" Margin="120,194,0,0" VerticalAlignment="Top" Width="201">
+            <ComboBoxItem>Asia</ComboBoxItem>
+            <ComboBoxItem>Europe</ComboBoxItem>
+            <ComboBoxItem>Oceans</ComboBoxItem>
+            <ComboBoxItem>Africa</ComboBoxItem>
+            <ComboBoxItem>Armerica</ComboBoxItem>
+        </ComboBox>
+
     </Grid>
 </Window>

@@ -24,5 +24,6 @@ namespace RegisterPeople
         {
             InitializeComponent();
         }
+
     }
 }
