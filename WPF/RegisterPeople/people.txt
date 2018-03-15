@@ -1,0 +1,4 @@
+Andreas;21;Male                      ;TigerLion;Europe\n
+Tristant;23;Male                      ;TigerLion;Asia\n
+Tristant;23;Male                      ;TigerLion;Asia\n
+Parker;12;Male                      ;TigerLionBear;Europe

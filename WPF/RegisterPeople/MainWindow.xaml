@@ -13,12 +13,12 @@
         <TextBox Name="tbAge" HorizontalAlignment="Left" Height="23" Margin="119,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="55"/>
         <Label Content="Gender
                " HorizontalAlignment="Left" Margin="45,109,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="26" Width="57"/>
-        <RadioButton Name="rbtnM" Content="M
-                     " HorizontalAlignment="Left" Margin="121,115,0,0" VerticalAlignment="Top"/>
-        <RadioButton Name="rbtnOther" Content="Other
-                     " HorizontalAlignment="Left" Margin="253,115,-30,0" VerticalAlignment="Top"/>
-        <RadioButton Name="rbtnF" Content="F
-                     " HorizontalAlignment="Left" Margin="188,115,0,0" VerticalAlignment="Top"/>
+        <RadioButton GroupName="gender" IsChecked="true" Name="rbtnM" Content="Male
+                     " HorizontalAlignment="Left" Margin="121,115,0,0" VerticalAlignment="Top" Width="53"/>
+        <RadioButton GroupName="gender" Name="rbtnOther" Content="Other
+                     " HorizontalAlignment="Left" Margin="253,115,0,0" VerticalAlignment="Top" Width="67"/>
+        <RadioButton GroupName="gender" Name="rbtnF" Content="Femalle
+                     " HorizontalAlignment="Left" Margin="188,115,0,0" VerticalAlignment="Top" Width="60"/>
         <Label Content="Pets" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top"/>
         <CheckBox Name="ckbxTiger" Content="Tiger" HorizontalAlignment="Left" Margin="119,155,0,0" VerticalAlignment="Top"/>
         <Label Content="Pets" HorizontalAlignment="Left" Margin="45,149,0,0" VerticalAlignment="Top"/>
@@ -32,6 +32,7 @@
             <ComboBoxItem>Africa</ComboBoxItem>
             <ComboBoxItem>Armerica</ComboBoxItem>
         </ComboBox>
+        <Button Name="btnRegister" Content="Register" HorizontalAlignment="Left" Margin="121,238,0,0" VerticalAlignment="Top" Width="109" Click="btnRegister_Click_1"/>
 
     </Grid>
 </Window>
