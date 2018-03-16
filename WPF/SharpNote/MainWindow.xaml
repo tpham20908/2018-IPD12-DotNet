@@ -19,7 +19,7 @@
 
         <StatusBar DockPanel.Dock="Bottom" Background="Salmon">
             <StatusBarItem>
-                <TextBlock Name="lblCursorPosition" Text="No file"/>
+                <TextBlock Name="tbStatus" Text="No file" TextWrapping="Wrap"/>
             </StatusBarItem>
         </StatusBar>
 

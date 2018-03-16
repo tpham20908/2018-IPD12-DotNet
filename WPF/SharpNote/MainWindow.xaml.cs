@@ -32,12 +32,13 @@ namespace SharpNote
         private void MenuFileOpen_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
             if (openFileDialog.ShowDialog() == true)
             {
                 try
                 {
                     tbDocument.Text = File.ReadAllText(openFileDialog.FileName);
+                    tbStatus.Text = openFileDialog.FileName;
                 }
                 catch (FileNotFoundException ex)
                 {
