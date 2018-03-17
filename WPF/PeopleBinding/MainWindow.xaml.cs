@@ -31,7 +31,7 @@ namespace PeopleBinding
             people.Add(new Person() { ID = 3, Name = "Marcus", Age = 31 });
             people.Add(new Person() { ID = 4, Name = "Stela", Age = 18 });
             
-            lvPerson.ItemsSource = people;
+            lvPeople.ItemsSource = people;
             */
         }
 
@@ -47,28 +47,29 @@ namespace PeopleBinding
                 int.TryParse(ageStr, out int age);
                 Person p = new Person() { ID = ++Id , Name = name, Age = age };
                 people.Add(p);
-                lvPerson.Items.Add(p);
+                lvPeople.Items.Add(p);
             }
             catch (InvalidDataException ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            String name = ((Person)lvPeople.SelectedItem).Name;
+            int age = ((Person)lvPeople.SelectedItem).Age;
+            int id = ((Person)lvPeople.SelectedItem).ID;
+            MessageBox.Show(id + name + age);
+        }
+
     }
 
     class Person
     {
-        //int _id = 0;
         int _age;
         String _name;
-        /*
-        public Person(String _name, int _age)
-        {
-            _id++;
-            Name = _name;
-            Age = _age;
-        }
-        */
+
         public int ID { get; set; }
 
         public int Age
