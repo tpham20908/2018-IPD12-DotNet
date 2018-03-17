@@ -27,13 +27,23 @@ namespace ScoopSelector
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            lbSelected.Items.Add(((ListBoxItem)lbFlavour.SelectedItem).Content.ToString());
+            if (lbFlavour.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an item to add", "No item", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+                lbSelected.Items.Add(((ListBoxItem)lbFlavour.SelectedItem).Content.ToString());
             
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            lbSelected.Items.Remove(lbSelected.SelectedItem);
+            if (lbSelected.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an item to delete", "No item", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+                lbSelected.Items.Remove(lbSelected.SelectedItem);
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
