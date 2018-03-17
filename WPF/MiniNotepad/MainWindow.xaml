@@ -10,10 +10,10 @@
         <Menu DockPanel.Dock="Top" Background="PaleTurquoise">
             <MenuItem Header="_File">
                 <MenuItem Header="_Open" Click="MenuFileOpen_Click"></MenuItem>
-                <MenuItem Header="_Save"></MenuItem>
-                <MenuItem Header="Save _as"></MenuItem>
+                <MenuItem Header="_Save" Click="MenuFileSave_Click"></MenuItem>
+                <MenuItem Header="Save _as" Click="MenuFileSaveAs_Click"></MenuItem>
                 <Separator/>
-                <MenuItem Header="_Exit"></MenuItem>
+                <MenuItem Header="_Exit" Click="MenuFileExit_Click"></MenuItem>
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom" Background="PaleTurquoise">
