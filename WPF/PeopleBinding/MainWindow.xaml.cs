@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -93,7 +92,7 @@ namespace PeopleBinding
         }
     }
 
-    class Person : INotifyPropertyChanged
+    class Person
     {
         int _age;
         String _name;
@@ -108,14 +107,13 @@ namespace PeopleBinding
             }
             set
             {
-                if (value < 0 || value > 150 || _age != value)
+                if (value < 0 || value > 150)
                 {
                     throw new InvalidDataException("Age must be in between 0 and 150");
                 }
                 else
                 {
                     _age = value;
-                    OnPropertyChanged("Age");
                 }
             }
         }
@@ -128,25 +126,14 @@ namespace PeopleBinding
             }
             set
             {
-                if (value.Length < 2 || value.Length > 50 || _name != value)
+                if (value.Length < 2 || value.Length > 50)
                 {
                     throw new InvalidDataException("Name must be 2 to 50 characters length");
                 }
                 else
                 {
                     _name = value;
-                    OnPropertyChanged("Name");
                 }
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
