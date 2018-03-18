@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -91,7 +90,7 @@ namespace PeopleBinding
         }
     }
 
-    class Person : INotifyPropertyChanged
+    class Person
     {
         int _age;
         String _name;
@@ -113,7 +112,6 @@ namespace PeopleBinding
                 else
                 {
                     _age = value;
-                    OnPropertyChanged("Age");
                 }
             }
         }
@@ -133,18 +131,7 @@ namespace PeopleBinding
                 else
                 {
                     _name = value;
-                    OnPropertyChanged("Name");
                 }
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
