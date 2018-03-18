@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -24,15 +25,6 @@ namespace PeopleBinding
         public MainWindow()
         {
             InitializeComponent();
-            /*
-            List<Person> people = new List<Person>();
-            people.Add(new Person() { ID = 1, Name = "Mario", Age = 23 });
-            people.Add(new Person() { ID = 2, Name = "Lucas", Age = 22 });
-            people.Add(new Person() { ID = 3, Name = "Marcus", Age = 31 });
-            people.Add(new Person() { ID = 4, Name = "Stela", Age = 18 });
-            
-            lvPeople.ItemsSource = people;
-            */
         }
 
         static List<Person> people = new List<Person>();
@@ -90,7 +82,7 @@ namespace PeopleBinding
         }
     }
 
-    class Person
+    class Person : INotifyPropertyChanged
     {
         int _age;
         String _name;
@@ -112,6 +104,7 @@ namespace PeopleBinding
                 else
                 {
                     _age = value;
+                    OnPropertyChanged("Age");
                 }
             }
         }
@@ -131,7 +124,17 @@ namespace PeopleBinding
                 else
                 {
                     _name = value;
+                    OnPropertyChanged("Name");
                 }
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
