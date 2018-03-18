@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
-        <ListView DockPanel.Dock="Left" Width="250" Margin="10" Name="lvPeople">
+        <ListView DockPanel.Dock="Left" Width="250" Margin="10" Name="lvPeople" SelectionChanged="lvPeople_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{ Binding ID }"></GridViewColumn>
