@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PeopleBinding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" Background="#FFC3B4B4">
+        Title="MainWindow" Height="350" Width="525" Background="#FFC3B4B4" Opacity="0.7" Foreground="#FF2E1B1B">
     <DockPanel>
         <ListView DockPanel.Dock="Left" Width="250" Margin="10" Name="lvPeople" SelectionChanged="lvPeople_SelectionChanged" Background="#FFE2E2D4">
             <ListView.View>
