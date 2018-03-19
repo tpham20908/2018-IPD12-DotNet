@@ -4,10 +4,3 @@ private void btnSaveFile_Click(object sender, RoutedEventArgs e)
                         if(saveFileDialog.ShowDialog() == true)
                                 File.WriteAllText(saveFileDialog.FileName, txtEditor.Text);
                 }
-
-private void btnSaveFile_Click(object sender, RoutedEventArgs e)
-                {
-                        SaveFileDialog saveFileDialog = new SaveFileDialog();
-                        if(saveFileDialog.ShowDialog() == true)
-                                File.WriteAllText(saveFileDialog.FileName, txtEditor.Text);
-                }
