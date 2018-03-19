@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PeopleBinding"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525" Background="#FFC3B4B4">
     <DockPanel>
-        <ListView DockPanel.Dock="Left" Width="250" Margin="10" Name="lvPeople" SelectionChanged="lvPeople_SelectionChanged">
+        <ListView DockPanel.Dock="Left" Width="250" Margin="10" Name="lvPeople" SelectionChanged="lvPeople_SelectionChanged" Background="#FFE2E2D4">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="30" DisplayMemberBinding="{ Binding ID }"></GridViewColumn>
@@ -23,8 +23,8 @@
             <Label Content="Age" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.387,0.673"/>
             <TextBox Name="tbName" Width="150" HorizontalAlignment="Left" Margin="67,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
             <TextBox Name="tbAge" Width="30" HorizontalAlignment="Left" Margin="67,121,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-            <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Update" HorizontalAlignment="Left" Margin="22,182,0,0" VerticalAlignment="Top" Width="75"/>
-            <Button Name="btnAdd" Click="btnAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="142,182,0,0" VerticalAlignment="Top" Width="75"/>
+            <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Update" HorizontalAlignment="Left" Margin="22,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF7695CB"/>
+            <Button Name="btnAdd" Click="btnAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="142,182,0,0" VerticalAlignment="Top" Width="75" Background="#FF899FC5"/>
 
         </Grid>
     </DockPanel>
