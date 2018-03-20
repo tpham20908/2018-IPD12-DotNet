@@ -9,27 +9,28 @@ namespace PeopleDB
 {
     class Database
     {
+        private SqlConnection conn;
         /*SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TP\11-DotNet\2018-IPD12-DotNet\WPF\FirstDB\FirstDB.mdf;Integrated Security=True;Connect Timeout=30");*/
-        
-        SqlConnection conn = new SqlConnection(@"Server = den1.mssql3.gear.host;
+
+        public Database()
+        {
+            conn = new SqlConnection(@"Server = den1.mssql3.gear.host;
             Database = jac; User Id = jac; Password = tp%ipd12");
-        
+            conn.Open();
+        }
         public void AddPerson(Person p)
         {
-            conn.Open();
             SqlCommand insertCommand = new SqlCommand("INSERT INTO People (Name, Age, Height) " +
                 "VALUES (@name, @age, @height)", conn);
             insertCommand.Parameters.AddWithValue("@name", p.Name);
             insertCommand.Parameters.AddWithValue("@age", p.Age);
             insertCommand.Parameters.AddWithValue("@height", p.Height);
             insertCommand.ExecuteNonQuery();
-            conn.Close();
         }      
 
         public List<Person> GetAllPeople()
         {
             List<Person> list = new List<Person>();
-            conn.Open();
             SqlCommand selectCommand = new SqlCommand("SELECT * FROM People", conn);
             using (SqlDataReader reader = selectCommand.ExecuteReader())
             {
@@ -43,22 +44,18 @@ namespace PeopleDB
                     list.Add(p);
                 }
             }
-            conn.Close();
             return list;
         }
 
         public void DeletePerson(int id)
         {
-            conn.Open();
             SqlCommand deleteCommand = new SqlCommand("DELETE FROM People WHERE ID = @id", conn);
             deleteCommand.Parameters.AddWithValue("@id", id);
             deleteCommand.ExecuteNonQuery();
-            conn.Close();
         }
 
         public void UpdatePerson(Person p)
         {
-            conn.Open();
             SqlCommand updateCommand = new SqlCommand("UPDATE People SET " +
                 "name = @name, age = @age, height = @height where id = @id", conn);
             updateCommand.Parameters.AddWithValue("@name", p.Name);
@@ -66,7 +63,6 @@ namespace PeopleDB
             updateCommand.Parameters.AddWithValue("@height", p.Height);
             updateCommand.Parameters.AddWithValue("@id", p.Id);
             updateCommand.ExecuteNonQuery();
-            conn.Close();
         }
     }
 }
