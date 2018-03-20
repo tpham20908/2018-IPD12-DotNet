@@ -1,0 +1,30 @@
+﻿<Window x:Class="CustomSanwich.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomSanwich"
+        mc:Ignorable="d"
+        Title="MainWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <Grid Margin="15">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Button Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Name="btnMake" 
+                Content="Make a Sandwich" Width="200" MinHeight="30" Click="btnMake_Click"></Button>
+        <Label Margin="0,15,0,0" Grid.Row="1" Grid.Column="0" Content="Bread"></Label>
+        <Label Margin="0,15,0,0" Grid.Row="2" Grid.Column="0" Content="Vegies"></Label>
+        <Label Margin="0,15,0,0" Grid.Row="3" Grid.Column="0" Content="Meat"></Label>
+        <Label Margin="0,15,0,0" Grid.Row="1" Grid.Column="1" Content="..." Name="lblBread"></Label>
+        <Label Margin="0,15,0,0" Grid.Row="2" Grid.Column="1" Content="..." Name="lblVegies"></Label>
+        <Label Margin="0,15,0,0" Grid.Row="3" Grid.Column="1" Content="..." Name="lblMeat"></Label>
+    </Grid>
+</Window>
