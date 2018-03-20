@@ -9,9 +9,11 @@ namespace PeopleDB
 {
     class Database
     {
+        /*SqlConnection conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TP\11-DotNet\2018-IPD12-DotNet\WPF\FirstDB\FirstDB.mdf;Integrated Security=True;Connect Timeout=30");*/
+        
         SqlConnection conn = new SqlConnection(@"Server = den1.mssql3.gear.host;
             Database = jac; User Id = jac; Password = tp%ipd12");
-
+        
         public void AddPerson(Person p)
         {
             conn.Open();
