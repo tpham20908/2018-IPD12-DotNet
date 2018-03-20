@@ -61,7 +61,6 @@ namespace PeopleDB_TeacherVersion
             cmd.Parameters.AddWithValue("@Name", p.Name);
             cmd.Parameters.AddWithValue("@Age", p.Age);
             cmd.Parameters.AddWithValue("@Height", p.Height);
-            cmd.CommandType = CommandType.Text;
             cmd.ExecuteNonQuery();
         }
 
@@ -69,8 +68,7 @@ namespace PeopleDB_TeacherVersion
         {
             string sql = "DELETE FROM People WHERE Id=@Id";
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.Parameters.Add("@Id", SqlDbType.Int).Value = id;
-            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@Id", id);
             cmd.ExecuteNonQuery();
         }
     }
