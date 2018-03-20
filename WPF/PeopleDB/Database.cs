@@ -44,5 +44,27 @@ namespace PeopleDB
             conn.Close();
             return list;
         }
+
+        public void DeletePerson(int id)
+        {
+            conn.Open();
+            SqlCommand deleteCommand = new SqlCommand("DELETE FROM People WHERE ID = @id", conn);
+            deleteCommand.Parameters.AddWithValue("@id", id);
+            deleteCommand.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public void UpdatePerson(Person p)
+        {
+            conn.Open();
+            SqlCommand updateCommand = new SqlCommand("UPDATE People SET " +
+                "name = '@name', age = @age, height = @height where id = @id", conn);
+            updateCommand.Parameters.AddWithValue("@name", p.Name);
+            updateCommand.Parameters.AddWithValue("@age", p.Age);
+            updateCommand.Parameters.AddWithValue("@height", p.Height);
+            updateCommand.Parameters.AddWithValue("@id", p.Id);
+            updateCommand.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }
