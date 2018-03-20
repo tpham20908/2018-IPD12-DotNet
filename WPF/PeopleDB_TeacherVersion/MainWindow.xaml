@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PeopleDB_TeacherVersion"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" ResizeMode="NoResize">
+        Title="MainWindow" Height="350" Width="555" ResizeMode="NoResize">
     <Grid>
         <ListBox SelectionChanged="LbPeople_OnSelectionChanged" Name="lbPeople" HorizontalAlignment="Left" Height="301" Margin="10,10,0,0" VerticalAlignment="Top" Width="281"/>
         <Label Content="Id:" HorizontalAlignment="Left" Margin="314,24,0,0" VerticalAlignment="Top"/>
