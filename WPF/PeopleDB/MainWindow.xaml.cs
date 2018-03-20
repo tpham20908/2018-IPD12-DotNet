@@ -20,14 +20,19 @@ namespace PeopleDB
     /// </summary>
     public partial class MainWindow : Window
     {
+        Database db = new Database();
+        List<Person> peopleList = new List<Person>();
+
         public MainWindow()
         {
+            peopleList = db.selectPeople();
             InitializeComponent();
+            lvPeople.ItemsSource = peopleList;
         }
 
         private void lvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
@@ -42,7 +47,40 @@ namespace PeopleDB
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
+            string name = tbName.Text;
+            string ageStr = tbAge.Text;
+            string heightStr = lblHeight.Content + "";
+            int age;
+            double height;
+            if (!int.TryParse(ageStr, out age))
+            {
+                MessageBox.Show("Age must be an integer");
+                return;
+            }
+            if (!double.TryParse(heightStr, out height))
+            {
+                MessageBox.Show("Height must be a double");
+                return;
+            }
+            try
+            {
+                Person p = new Person(0, name, age, height);
+                db.insertToPeople(p);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            peopleList = db.selectPeople();
+            lvPeople.Items.Refresh();
+            reset();
+        }
 
+        private void reset()
+        {
+            tbName.Text = "";
+            tbAge.Text = "";
+            lblHeight.Content = "160";
         }
     }
 }

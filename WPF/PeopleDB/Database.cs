@@ -12,15 +12,16 @@ namespace PeopleDB
         SqlConnection conn = new SqlConnection(@"Server = den1.mssql3.gear.host;
             Database = jac; User Id = jac; Password = tp%ipd12");
 
-        public void insertToPeople(String name, int age, double height)
+        public void insertToPeople(Person p)
         {
             conn.Open();
             SqlCommand insertCommand = new SqlCommand("INSERT INTO People (Name, Age, Height) " +
                 "VALUES (@name, @age, @height)", conn);
-            insertCommand.Parameters.AddWithValue("@name", name);
-            insertCommand.Parameters.AddWithValue("@age", age);
-            insertCommand.Parameters.AddWithValue("@height", height);
+            insertCommand.Parameters.AddWithValue("@name", p.Name);
+            insertCommand.Parameters.AddWithValue("@age", p.Age);
+            insertCommand.Parameters.AddWithValue("@height", p.Height);
             insertCommand.ExecuteNonQuery();
+            conn.Close();
         }      
 
         public List<Person> selectPeople()
@@ -37,8 +38,10 @@ namespace PeopleDB
                     int age = int.Parse(reader[2] + "");
                     double height = double.Parse(reader[3] + "");
                     Person p = new Person(id, name, age, height);
+                    list.Add(p);
                 }
             }
+            conn.Close();
             return list;
         }
     }
