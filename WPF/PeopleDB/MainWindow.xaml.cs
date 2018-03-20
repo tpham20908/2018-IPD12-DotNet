@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,102 +21,110 @@ namespace PeopleDB
     /// </summary>
     public partial class MainWindow : Window
     {
-        Database db = new Database();
-        List<Person> peopleList = new List<Person>();
+        Database db;
+        //List<Person> peopleList = new List<Person>();
 
         public MainWindow()
         {
-            peopleList = db.GetAllPeople();
-            InitializeComponent();
-            lvPeople.ItemsSource = peopleList;
+            try
+            {
+                db = new Database();
+                InitializeComponent();
+                refreshPeopleList();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Error opening database connection: " + ex.Message);
+                Environment.Exit(1);
+            }
+        }
+
+        private void refreshPeopleList()
+        {
+            lvPeople.ItemsSource = db.GetAllPeople();
+            // Refresh not needed, when assigning ItemsSource Refresh is triggered
+            // lbPeople.Items.Refresh();
         }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            string name = tbName.Text;
-            string ageStr = tbAge.Text;
-            string heightStr = tbHeight.Text;
-            int age;
-            double height;
-            if (!int.TryParse(ageStr, out age))
-            {
-                MessageBox.Show("Age must be an integer");
-                return;
-            }
-            if (!double.TryParse(heightStr, out height))
-            {
-                MessageBox.Show("Height must be a double");
-                return;
-            }
             try
             {
+                string name = tbName.Text;
+                int age = int.Parse(tbAge.Text);
+                double height = slHeight.Value;
                 Person p = new Person(0, name, age, height);
                 db.AddPerson(p);
+                refreshPeopleList();
             }
-            catch (ArgumentException ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Database query error " + ex.Message);
             }
-            peopleList = db.GetAllPeople();
-            lvPeople.Items.Refresh();
-            reset();
+            resetInputFields();
         }
 
         private void lvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Person p = (Person) lvPeople.SelectedItem;
-            lblId.Content = p.Id;
+            int index = lvPeople.SelectedIndex;
+            if (index < 0)
+            {
+                return;
+            }
+            Person p = (Person)lvPeople.Items[index];
+            lblId.Content = p.Id + "";
             tbName.Text = p.Name;
             tbAge.Text = p.Age + "";
-            slHeight.Value = p.Height;
         }
 
         private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
         {
-            Person p = (Person)lvPeople.SelectedItem;
-            int id = p.Id;
-            if (id < 0)
+            int index = lvPeople.SelectedIndex;
+            if (index < 0)
             {
-                lblId.Content = "...";
                 return;
             }
-            db.DeletePerson(id);
-            lvPeople.Items.Refresh();
+            Person p = (Person)lvPeople.Items[index];
+            try
+            {
+                db.DeletePerson(p.Id);
+                refreshPeopleList();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Database query error " + ex.Message);
+            }
+            resetInputFields();
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int id = int.Parse(lblId.Content + "");
-            string name = tbName.Text;
-            string ageStr = tbAge.Text;
-            string heightStr = tbHeight.Text;
-            int age;
-            double height;
-            if (!int.TryParse(ageStr, out age))
+            int index = lvPeople.SelectedIndex;
+            if (index < 0)
             {
-                MessageBox.Show("Age must be an integer");
                 return;
             }
-            if (!double.TryParse(heightStr, out height))
-            {
-                MessageBox.Show("Height must be a double");
-                return;
-            }
+            Person p = (Person)lvPeople.Items[index];
             try
             {
-                Person p = new Person(id, name, age, height);
+                p.Name = tbName.Text;
+                p.Age = int.Parse(tbAge.Text);
+                p.Height = slHeight.Value;
                 db.UpdatePerson(p);
+                refreshPeopleList();
             }
-            catch (ArgumentException ex)
+            catch (SqlException ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show("Database query error " + ex.Message);
             }
-            peopleList = db.GetAllPeople();
-            lvPeople.Items.Refresh();
-            reset();
+            resetInputFields();
         }
 
-        private void reset()
+        private void resetInputFields()
         {
             tbName.Text = "";
             tbAge.Text = "";
