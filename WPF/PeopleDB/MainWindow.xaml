@@ -31,7 +31,16 @@
         <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Update" HorizontalAlignment="Left" Margin="400,180,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="btAdd" Click="btAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="527,180,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Height:" HorizontalAlignment="Left" Margin="396,131,0,0" VerticalAlignment="Top"/>
-        <Slider Name="slHeight" TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="449,139,0,0" VerticalAlignment="Top" Width="120" Maximum="300" Minimum="30" Value="160" SmallChange="1" Cursor=""/>
-        <Label Name="lblHeight" Content="{Binding ElementName=slHeight, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="573,131,0,0" VerticalAlignment="Top"/>
+        <Slider Name="slHeight" TickFrequency="0.1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="449,139,0,0" VerticalAlignment="Top" Width="120" Maximum="300" Minimum="30" Value="160" SmallChange="1" Cursor="" RenderTransformOrigin="0.5,0.5">
+            <Slider.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.147"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Slider.RenderTransform>
+        </Slider>
+        <TextBox Name="tbHeight" Text="{Binding ElementName=slHeight, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="577,139,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.249,0.483" Width="32"/>
     </Grid>
 </Window>

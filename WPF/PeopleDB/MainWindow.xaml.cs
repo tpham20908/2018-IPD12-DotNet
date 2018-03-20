@@ -34,7 +34,7 @@ namespace PeopleDB
         {
             string name = tbName.Text;
             string ageStr = tbAge.Text;
-            string heightStr = lblHeight.Content + "";
+            string heightStr = tbHeight.Text;
             int age;
             double height;
             if (!int.TryParse(ageStr, out age))
@@ -63,24 +63,63 @@ namespace PeopleDB
 
         private void lvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Person p = (Person) lvPeople.SelectedItem;
+            lblId.Content = p.Id;
+            tbName.Text = p.Name;
+            tbAge.Text = p.Age + "";
+            slHeight.Value = p.Height;
         }
 
         private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            Person p = (Person)lvPeople.SelectedItem;
+            int id = p.Id;
+            if (id < 0)
+            {
+                lblId.Content = "...";
+                return;
+            }
+            db.DeletePerson(id);
+            lvPeople.Items.Refresh();
         }
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            int id = int.Parse(lblId.Content + "");
+            string name = tbName.Text;
+            string ageStr = tbAge.Text;
+            string heightStr = tbHeight.Text;
+            int age;
+            double height;
+            if (!int.TryParse(ageStr, out age))
+            {
+                MessageBox.Show("Age must be an integer");
+                return;
+            }
+            if (!double.TryParse(heightStr, out height))
+            {
+                MessageBox.Show("Height must be a double");
+                return;
+            }
+            try
+            {
+                Person p = new Person(id, name, age, height);
+                db.UpdatePerson(p);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            peopleList = db.GetAllPeople();
+            lvPeople.Items.Refresh();
+            reset();
         }
 
         private void reset()
         {
             tbName.Text = "";
             tbAge.Text = "";
-            lblHeight.Content = "160";
+            slHeight.Value = 160;
         }
     }
 }

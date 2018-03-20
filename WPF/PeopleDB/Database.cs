@@ -58,7 +58,7 @@ namespace PeopleDB
         {
             conn.Open();
             SqlCommand updateCommand = new SqlCommand("UPDATE People SET " +
-                "name = '@name', age = @age, height = @height where id = @id", conn);
+                "name = @name, age = @age, height = @height where id = @id", conn);
             updateCommand.Parameters.AddWithValue("@name", p.Name);
             updateCommand.Parameters.AddWithValue("@age", p.Age);
             updateCommand.Parameters.AddWithValue("@height", p.Height);
