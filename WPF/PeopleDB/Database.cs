@@ -12,7 +12,7 @@ namespace PeopleDB
         SqlConnection conn = new SqlConnection(@"Server = den1.mssql3.gear.host;
             Database = jac; User Id = jac; Password = tp%ipd12");
 
-        public void insertToPeople(Person p)
+        public void AddPerson(Person p)
         {
             conn.Open();
             SqlCommand insertCommand = new SqlCommand("INSERT INTO People (Name, Age, Height) " +
@@ -24,7 +24,7 @@ namespace PeopleDB
             conn.Close();
         }      
 
-        public List<Person> selectPeople()
+        public List<Person> GetAllPeople()
         {
             List<Person> list = new List<Person>();
             conn.Open();

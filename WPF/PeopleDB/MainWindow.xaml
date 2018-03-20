@@ -31,7 +31,7 @@
         <Button Name="btnUpdate" Click="btnUpdate_Click" Content="Update" HorizontalAlignment="Left" Margin="400,180,0,0" VerticalAlignment="Top" Width="75"/>
         <Button Name="btAdd" Click="btAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="527,180,0,0" VerticalAlignment="Top" Width="75"/>
         <Label Content="Height:" HorizontalAlignment="Left" Margin="396,131,0,0" VerticalAlignment="Top"/>
-        <Slider Name="slHeight" HorizontalAlignment="Left" Margin="449,139,0,0" VerticalAlignment="Top" Width="120" Maximum="300" Minimum="30" Value="160"/>
-        <Label Name="lblHeight" Content="160" HorizontalAlignment="Left" Margin="573,131,0,0" VerticalAlignment="Top"/>
+        <Slider Name="slHeight" TickFrequency="1" IsSnapToTickEnabled="True" HorizontalAlignment="Left" Margin="449,139,0,0" VerticalAlignment="Top" Width="120" Maximum="300" Minimum="30" Value="160" SmallChange="1" Cursor=""/>
+        <Label Name="lblHeight" Content="{Binding ElementName=slHeight, Path=Value, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="573,131,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

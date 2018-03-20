@@ -25,24 +25,9 @@ namespace PeopleDB
 
         public MainWindow()
         {
-            peopleList = db.selectPeople();
+            peopleList = db.GetAllPeople();
             InitializeComponent();
             lvPeople.ItemsSource = peopleList;
-        }
-
-        private void lvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
-        private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
@@ -65,15 +50,30 @@ namespace PeopleDB
             try
             {
                 Person p = new Person(0, name, age, height);
-                db.insertToPeople(p);
+                db.AddPerson(p);
             }
             catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            peopleList = db.selectPeople();
+            peopleList = db.GetAllPeople();
             lvPeople.Items.Refresh();
             reset();
+        }
+
+        private void lvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void reset()
