@@ -68,12 +68,11 @@ namespace PeopleDB
 
         private void lvPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int index = lvPeople.SelectedIndex;
-            if (index < 0)
+            Person p = (Person)lvPeople.SelectedItem;
+            if (p == null)
             {
                 return;
             }
-            Person p = (Person)lvPeople.Items[index];
             lblId.Content = p.Id + "";
             tbName.Text = p.Name;
             tbAge.Text = p.Age + "";
@@ -81,12 +80,11 @@ namespace PeopleDB
 
         private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
         {
-            int index = lvPeople.SelectedIndex;
-            if (index < 0)
+            Person p = (Person)lvPeople.SelectedItem;
+            if (p == null)
             {
                 return;
             }
-            Person p = (Person)lvPeople.Items[index];
             try
             {
                 db.DeletePerson(p.Id);
@@ -102,12 +100,11 @@ namespace PeopleDB
 
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            int index = lvPeople.SelectedIndex;
-            if (index < 0)
+            Person p = (Person)lvPeople.SelectedItem;
+            if (p == null)
             {
                 return;
             }
-            Person p = (Person)lvPeople.Items[index];
             try
             {
                 p.Name = tbName.Text;
