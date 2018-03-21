@@ -10,7 +10,7 @@
     <TextBlock Name="tbName" Text="Tailor-Mode Tours" FontSize="28" FontWeight="Bold" />
     <TabControl MinHeight="660">
       <TabItem Header="Tour Stops">
-        <Grid Background="#eee"></Grid>
+        <views:TourStopsView />
       </TabItem>
       <TabItem Header="Details">
         <views:DetailView />
