@@ -7,6 +7,15 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-      <ListBox Name="lbTour" />
+    <ListBox Name="lbTour">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <Image Source="{Binding ImageUri}" MinWidth="300" Stretch="UniformToFill"/>
+            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="20" />
+          </StackPanel>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+    </ListBox>
     </Grid>
 </UserControl>
