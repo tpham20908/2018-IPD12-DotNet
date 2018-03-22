@@ -53,14 +53,20 @@ namespace TodoList
         internal void UpdateTodo(Todo todo)
         {
             string sql = "UPDATE Todos SET Task = @Task, DueDate = @DueDate, IsDone = @IsDone WHERE Id = @Id";
-            using (SqlCommand cmd = new SqlCommand(sql, conn))
-            {
-                cmd.Parameters.AddWithValue("Task", todo.Task);
-                cmd.Parameters.AddWithValue("DueDate", todo.DueDate);
-                cmd.Parameters.AddWithValue("IsDone", todo.IsDone);
-                cmd.Parameters.AddWithValue("Id", todo.Id);
-                cmd.ExecuteNonQuery();
-            }
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("Task", todo.Task);
+            cmd.Parameters.AddWithValue("DueDate", todo.DueDate);
+            cmd.Parameters.AddWithValue("IsDone", todo.IsDone);
+            cmd.Parameters.AddWithValue("Id", todo.Id);
+            cmd.ExecuteNonQuery();
+        }
+
+        internal void DeleteTodo(int id)
+        {
+            string sql = "DELETE FROM Todos WHERE Id = @Id";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("Id", id);
+            cmd.ExecuteNonQuery();
         }
     }
 }

@@ -50,5 +50,36 @@ namespace TodoList
                 refreshTodoList();
             }
         }
+
+        private void lvTodos_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Todo todo = (Todo) lvTodos.SelectedItem;
+            if (todo == null) return;
+            AddEditTodoDialog dlg = new AddEditTodoDialog(todo);
+            if (dlg.ShowDialog() == true)
+            {
+                refreshTodoList();
+            }
+        }
+
+        private void MenuItemDelete_Click(object sender, RoutedEventArgs e)
+        {
+            Todo todo = (Todo)lvTodos.SelectedItem;
+            if (todo == null) return;
+            Global.db.DeleteTodo(todo.Id);
+            refreshTodoList();
+        }
+
+        private void tbSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            List<Todo> todoList = Global.db.GetAllTodos();
+            string word = tbSearch.Text;
+            if (word != "")
+            {
+                var result = from t in todoList where t.Task.Contains(word) select t;
+                todoList = result.ToList();
+            }
+            lvTodos.ItemsSource = todoList;
+        }
     }
 }

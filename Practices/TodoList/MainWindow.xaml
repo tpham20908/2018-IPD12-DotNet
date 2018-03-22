@@ -13,10 +13,15 @@
     </Grid.RowDefinitions>
     <StackPanel Orientation="Horizontal" Height="50" Grid.Row="0">
       <Label Content="Search" Margin="5" />
-      <TextBox Name="tbSearch" Width="220" Margin="5" />
+      <TextBox Name="tbSearch" Width="220" Margin="5" TextChanged="tbSearch_TextChanged"/>
       <Button Name="btnAdd" Content="Add" Width="120" HorizontalAlignment="Right" Margin="30 0" Click="btnAdd_Click" />
     </StackPanel>
-    <ListView Name="lvTodos" Margin="10,8,10,12" Grid.Row="1" >
+    <ListView Name="lvTodos" Margin="10,8,10,12" Grid.Row="1" MouseDoubleClick="lvTodos_MouseDoubleClick" >
+      <ListView.ContextMenu>
+        <ContextMenu>
+          <MenuItem Header="Delete" Click="MenuItemDelete_Click" />
+        </ContextMenu>
+      </ListView.ContextMenu>
       <ListView.View>
         <GridView>
           <GridViewColumn Header="Task" Width="220" DisplayMemberBinding="{Binding Task}" />
