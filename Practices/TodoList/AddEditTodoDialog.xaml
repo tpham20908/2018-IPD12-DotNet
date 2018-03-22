@@ -11,8 +11,8 @@
     <Label Content="Task" HorizontalAlignment="Left" Margin="47,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.41" />
     <Label Content="Due Date" HorizontalAlignment="Left" Margin="47,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.142,-0.74" />
     <CheckBox Name="ckbxDone" Content="Done" HorizontalAlignment="Left" Margin="47,179,0,0" VerticalAlignment="Top" />
-    <Button Content="Cancel" HorizontalAlignment="Left" Margin="47,223,0,0" VerticalAlignment="Top" Width="75" />
-    <Button Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="187,223,0,0" VerticalAlignment="Top" Width="75" />
+    <Button Content="Cancel" HorizontalAlignment="Left" Margin="47,223,0,0" VerticalAlignment="Top" Width="120" Click="Button_Click" />
+    <Button Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="187,223,0,0" VerticalAlignment="Top" Width="120" Click="btnSave_Click" />
     <Label Name="lblId" Content="..." HorizontalAlignment="Left" Margin="136,39,0,0" VerticalAlignment="Top" Width="126" />
     <TextBox Name="tbTask" HorizontalAlignment="Left" Height="23" Margin="136,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
     <DatePicker Name="dtpkDueDate" HorizontalAlignment="Left" Margin="136,133,0,0" VerticalAlignment="Top" Width="120" />

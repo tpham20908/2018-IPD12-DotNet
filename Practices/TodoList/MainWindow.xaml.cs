@@ -44,10 +44,10 @@ namespace TodoList
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddEditTodoDialog dialog = new AddEditTodoDialog();
+            AddEditTodoDialog dialog = new AddEditTodoDialog(null);
             if (dialog.ShowDialog() == true)
             {
-
+                refreshTodoList();
             }
         }
     }

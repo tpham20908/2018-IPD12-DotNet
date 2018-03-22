@@ -19,8 +19,8 @@
     <ListView Name="lvTodos" Margin="10,8,10,12" Grid.Row="1" >
       <ListView.View>
         <GridView>
-          <GridViewColumn Header="Task" Width="280" DisplayMemberBinding="{Binding Task}" />
-          <GridViewColumn Header="Due Date" Width="120" DisplayMemberBinding="{Binding DueDate}" />
+          <GridViewColumn Header="Task" Width="220" DisplayMemberBinding="{Binding Task}" />
+          <GridViewColumn Header="Due Date" Width="180" DisplayMemberBinding="{Binding DueDate}" />
           <GridViewColumn Header="Done?" Width="90" DisplayMemberBinding="{Binding IsDone}" />
         </GridView>
       </ListView.View>

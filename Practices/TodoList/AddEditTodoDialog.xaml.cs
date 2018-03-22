@@ -19,9 +19,44 @@ namespace TodoList
     /// </summary>
     public partial class AddEditTodoDialog : Window
     {
-        public AddEditTodoDialog()
+        private Todo currentItem;
+        public AddEditTodoDialog(Todo item)
         {
+            currentItem = item;
             InitializeComponent();
+            if (currentItem == null)
+            {
+                btnSave.Content = "Add new Todo";
+            }
+            else
+            {
+                lblId.Content = item.Id + "";
+                tbTask.Text = item.Task;
+                dtpkDueDate.SelectedDate = item.DueDate;
+                ckbxDone.IsChecked = item.IsDone;
+            }
         }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            Todo todo = currentItem == null ? new Todo() : currentItem;
+            todo.Task = tbTask.Text;
+            todo.DueDate = (DateTime) dtpkDueDate.SelectedDate;
+            todo.IsDone = (bool) ckbxDone.IsChecked;
+            if (currentItem == null)
+            {
+                Global.db.AddTodo(todo);
+            }
+            else
+            {
+                Global.db.UpdateTodo(todo);
+            }
+            DialogResult = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+        }      
     }
 }

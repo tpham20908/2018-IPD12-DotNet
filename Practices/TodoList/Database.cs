@@ -37,5 +37,30 @@ namespace TodoList
             }
             return todoList.ToList();
         }
+
+        public void AddTodo(Todo todo)
+        {
+            string sql = "INSERT INTO Todos (Task, DueDate, IsDone) VALUES (@Task, @DueDate, @IsDone);";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("Task", todo.Task);
+                cmd.Parameters.AddWithValue("DueDate", todo.DueDate);
+                cmd.Parameters.AddWithValue("IsDone", todo.IsDone);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        internal void UpdateTodo(Todo todo)
+        {
+            string sql = "UPDATE Todos SET Task = @Task, DueDate = @DueDate, IsDone = @IsDone WHERE Id = @Id";
+            using (SqlCommand cmd = new SqlCommand(sql, conn))
+            {
+                cmd.Parameters.AddWithValue("Task", todo.Task);
+                cmd.Parameters.AddWithValue("DueDate", todo.DueDate);
+                cmd.Parameters.AddWithValue("IsDone", todo.IsDone);
+                cmd.Parameters.AddWithValue("Id", todo.Id);
+                cmd.ExecuteNonQuery();
+            }
+        }
     }
 }
