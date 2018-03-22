@@ -30,9 +30,9 @@ namespace CustomSandwich
             Custom dialog = new Custom();
             if (dialog.ShowDialog() == true)
             {
-                lblBread.Content = dialog.Bread;
-                lblMeat.Content = dialog.Meat;
-                lblVeggies.Content = dialog.Veggies;
+                tbBread.Text = dialog.Bread;
+                tbMeat.Text = dialog.Meat;
+                tbVeggies.Text = dialog.Veggies;
             }
         }
     }

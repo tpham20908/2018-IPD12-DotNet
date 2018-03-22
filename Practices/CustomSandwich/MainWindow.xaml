@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomSandwich"
         mc:Ignorable="d"
-        Title="MainWindow" Width="300" Height="250">
+        Title="MainWindow" Width="300" Height="250" WindowStartupLocation="CenterScreen">
   <StackPanel Margin="10">
     <Label Content="Custom Sandwich" FontSize="22" FontWeight="Bold" />
     <Border BorderThickness="2" BorderBrush="#2344">
@@ -21,12 +21,12 @@
             <RowDefinition Height="30" />
             <RowDefinition Height="30" />
           </Grid.RowDefinitions>
-          <Label Content="Bread:" Grid.Column="0" Grid.Row="0" />
-          <Label Content="Veggies:" Grid.Column="0" Grid.Row="1" />
-          <Label Content="Meat:" Grid.Column="0" Grid.Row="2" />
-          <Label Content="..." Grid.Column="1" Grid.Row="0" Name="lblBread" />
-          <Label Content="..." Grid.Column="1" Grid.Row="1" Name="lblVeggies" />
-          <Label Content="..." Grid.Column="1" Grid.Row="2" Name="lblMeat" />
+          <Label Content="Bread:" Grid.Column="0" Grid.Row="0" Margin="2" />
+          <Label Content="Veggies:" Grid.Column="0" Grid.Row="1" Margin="2" />
+          <Label Content="Meat:" Grid.Column="0" Grid.Row="2" Margin="2" />
+          <TextBox IsReadOnly="True" Grid.Column="1" Grid.Row="0" Name="tbBread" Background="#eee" Padding="2" Margin="2" />
+          <TextBox IsReadOnly="True" Grid.Column="1" Grid.Row="1" Name="tbVeggies" Background="#eee" Padding="2" Margin="2" />
+          <TextBox IsReadOnly="True" Grid.Column="1" Grid.Row="2" Name="tbMeat" Background="#eee" Padding="2" Margin="2" />
         </Grid>
       </StackPanel>
     </Border>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomSandwich"
         mc:Ignorable="d"
-        Title="Custom" Height="300" Width="300">
+        Title="Custom" Height="300" Width="300" WindowStartupLocation="CenterScreen">
   <StackPanel Margin="10">
     <StackPanel Orientation="Horizontal">
       <Label Content="Bread" MinWidth="50" VerticalAlignment="Center"/>
