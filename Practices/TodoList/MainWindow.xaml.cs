@@ -25,8 +25,9 @@ namespace TodoList
         {
             try
             {
-                Database db = new Database();
+                Global.db = new Database();
                 InitializeComponent();
+                refreshTodoList();
             }
             catch (SqlException e)
             {
@@ -34,6 +35,11 @@ namespace TodoList
                 MessageBox.Show("Error opening database connection: " + e.Message);
                 Environment.Exit(1);
             }
+        }
+
+        void refreshTodoList()
+        {
+            lvTodos.ItemsSource = Global.db.GetAllTodos();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)

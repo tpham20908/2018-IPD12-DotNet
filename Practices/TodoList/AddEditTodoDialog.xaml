@@ -14,7 +14,7 @@
     <Button Content="Cancel" HorizontalAlignment="Left" Margin="47,223,0,0" VerticalAlignment="Top" Width="75" />
     <Button Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="187,223,0,0" VerticalAlignment="Top" Width="75" />
     <Label Name="lblId" Content="..." HorizontalAlignment="Left" Margin="136,39,0,0" VerticalAlignment="Top" Width="126" />
-    <TextBox Name="tbTask" HorizontalAlignment="Left" Height="23" Margin="136,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
+    <TextBox Name="tbTask" HorizontalAlignment="Left" Height="23" Margin="136,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
     <DatePicker Name="dtpkDueDate" HorizontalAlignment="Left" Margin="136,133,0,0" VerticalAlignment="Top" Width="120" />
   </Grid>
 </Window>

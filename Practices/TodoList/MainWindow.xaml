@@ -16,7 +16,7 @@
       <TextBox Name="tbSearch" Width="220" Margin="5" />
       <Button Name="btnAdd" Content="Add" Width="120" HorizontalAlignment="Right" Margin="30 0" Click="btnAdd_Click" />
     </StackPanel>
-    <ListView Name="lvTodos" Margin="10" Grid.Row="1" >
+    <ListView Name="lvTodos" Margin="10,8,10,12" Grid.Row="1" >
       <ListView.View>
         <GridView>
           <GridViewColumn Header="Task" Width="280" DisplayMemberBinding="{Binding Task}" />
