@@ -29,6 +29,7 @@ namespace TodoDBCustDlg
                 cmd.Parameters.AddWithValue("@Name", todo.Task);
                 cmd.Parameters.AddWithValue("@Age", todo.DueDate);
                 cmd.Parameters.AddWithValue("@IsDone", todo.IsDone);
+				cmd.ExecuteNonQuery();
                 //int id = (int)cmd.ExecuteScalar();
                 //return id;
             }

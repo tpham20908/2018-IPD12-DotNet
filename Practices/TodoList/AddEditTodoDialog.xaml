@@ -1,0 +1,20 @@
+﻿<Window x:Class="TodoList.AddEditTodoDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TodoList"
+        mc:Ignorable="d"
+        Title="AddEditTodoDialog" Height="300" Width="300">
+  <Grid>
+    <Label Content="Id" HorizontalAlignment="Left" Margin="47,39,0,0" VerticalAlignment="Top" />
+    <Label Content="Task" HorizontalAlignment="Left" Margin="47,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.48,0.41" />
+    <Label Content="Due Date" HorizontalAlignment="Left" Margin="47,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.142,-0.74" />
+    <CheckBox Name="ckbxDone" Content="Done" HorizontalAlignment="Left" Margin="47,179,0,0" VerticalAlignment="Top" />
+    <Button Content="Cancel" HorizontalAlignment="Left" Margin="47,223,0,0" VerticalAlignment="Top" Width="75" />
+    <Button Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="187,223,0,0" VerticalAlignment="Top" Width="75" />
+    <Label Name="lblId" Content="..." HorizontalAlignment="Left" Margin="136,39,0,0" VerticalAlignment="Top" Width="126" />
+    <TextBox Name="tbTask" HorizontalAlignment="Left" Height="23" Margin="136,85,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" />
+    <DatePicker Name="dtpkDueDate" HorizontalAlignment="Left" Margin="136,133,0,0" VerticalAlignment="Top" Width="120" />
+  </Grid>
+</Window>
