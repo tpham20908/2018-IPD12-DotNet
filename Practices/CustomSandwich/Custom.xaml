@@ -1,0 +1,45 @@
+﻿<Window x:Class="CustomSandwich.Custom"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomSandwich"
+        mc:Ignorable="d"
+        Title="Custom" Height="300" Width="300">
+  <StackPanel Margin="10">
+    <StackPanel Orientation="Horizontal">
+      <Label Content="Bread" MinWidth="50" VerticalAlignment="Center"/>
+      <ComboBox Name="cbbxBread" MinWidth="150" Margin="15 5">
+        <ComboBoxItem Content="Italien" />
+        <ComboBoxItem Content="Honey Oat" />
+        <ComboBoxItem Content="Herb and Cheese" />
+        <ComboBoxItem Content="Whole Grain" />
+      </ComboBox>
+    </StackPanel>
+    <Border BorderThickness="3" BorderBrush="#5c55" Margin="0 5">
+      <StackPanel>
+        <Label Content="Veggies" FontSize="22" FontStyle="Italic" Foreground="#393" />
+        <StackPanel Orientation="Horizontal">
+          <CheckBox Name="ckbxLettuce" Content="Lettuce" Margin="5"/>
+          <CheckBox Name="ckbxTomatoes" Content="Tomatoes" Margin="5" />
+          <CheckBox Name="ckbxCucumbers" Content="Cucumbers" Margin="5" />
+        </StackPanel>
+      </StackPanel>
+    </Border>
+    <Border BorderThickness="3" BorderBrush="#6666" Margin="0 5">
+      <StackPanel>
+        <Label Content="Meat" FontSize="22" FontStyle="Italic" Foreground="#800" />
+        <StackPanel Orientation="Horizontal">
+          <RadioButton Name="rbtnChicken" Content="Chicken" Margin="6" />
+          <RadioButton Name="rbtnTurkey" Content="Turkey" Margin="6" />
+          <RadioButton Name="rbtnBeef" Content="Beef" Margin="6" />
+          <RadioButton Name="rbtnTofu" Content="Tofu" Margin="6" />
+        </StackPanel>
+      </StackPanel>
+    </Border>
+    <StackPanel Orientation="Horizontal">
+      <Button IsCancel="True" Content="Cancel" MinWidth="90" Margin="20" />
+      <Button Name="btnSave" IsDefault="True" Content="Save" MinWidth="90" Margin="20" Click="btnSave_Click"/>
+    </StackPanel>
+  </StackPanel>
+</Window>
