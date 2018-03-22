@@ -4,6 +4,34 @@
              xmlns:local="clr-namespace:TailorModeTours"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+    <DataTemplate x:Key="TourTemplate">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="Auto" />
+          <ColumnDefinition Width="4*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="30" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="{Binding StopNumber}" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Margin="10" />
+        <Ellipse HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="60" Height="60" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Stroke="#555" StrokeThickness="3" Margin="10"/>
+        
+        <Image Source="{Binding ImageUri}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Width="140" Height="120" Stretch="UniformToFill" Margin="6 3"/>
+        
+        <TextBlock Text="{Binding Name}" Grid.Column="2" Grid.Row="0" FontSize="18" FontWeight="Bold" MaxWidth="380" Padding="10" TextAlignment="Left"/>
+        <TextBlock Text="{Binding Description}" Grid.Column="2" Grid.Row="1" TextWrapping="Wrap" MaxWidth="380" Padding="10" />
+        
+        <StackPanel Grid.Column="3" Grid.RowSpan="3" HorizontalAlignment="Right" Margin="10">
+          <Button Content="Map" Padding="3" Margin="3" HorizontalAlignment="Right" MinWidth="90" />
+          <Button Content="{Binding Phone}" HorizontalAlignment="Right" Padding="3" Margin="3" MinWidth="90" />
+          <CheckBox Content="Add to Tour" Padding="3" Margin="3" HorizontalAlignment="Right" MinWidth="90" />
+        </StackPanel>
+      </Grid>
+    </DataTemplate>
     </Application.Resources>
 </Application>
