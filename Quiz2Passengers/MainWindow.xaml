@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quiz2Passengers"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="570" WindowStartupLocation="CenterScreen">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="60" />
@@ -13,18 +13,18 @@
     </Grid.RowDefinitions>
     <StackPanel Orientation="Horizontal" Height="50" Grid.Row="0">
       <Label Content="Search" Margin="5" />
-      <TextBox Name="tbSearch" Width="220" Margin="5" />
-      <Button Content="Sort by..." Margin="15" Width="70" />
-      <Button Name="btnAdd" Content="Add" Width="70" HorizontalAlignment="Right" Margin="20 0" />
+      <TextBox Name="tbSearch" Width="220" Margin="5" TextChanged="tbSearch_TextChanged" />
+      <Button Name="btnSort" Content="Sort by..." Margin="15" Width="70" Click="btnSort_Click" />
+      <Button Name="btnAdd" Content="Add" Width="70" HorizontalAlignment="Right" Margin="20 0" Click="btnAdd_Click" />
     </StackPanel>
-    <ListView Name="lvTodos" Margin="10,8,10,12" Grid.Row="1" >
+    <ListView Name="lvPassengers" Margin="10,8,10,12" Grid.Row="1" MouseDoubleClick="lvPassengers_MouseDoubleClick" >
       <ListView.View>
         <GridView>
           <GridViewColumn Header="Name" Width="120" DisplayMemberBinding="{Binding Name}" />
           <GridViewColumn Header="Passport" Width="80" DisplayMemberBinding="{Binding Passport}" />
           <GridViewColumn Header="Destination" Width="90" DisplayMemberBinding="{Binding Destination}" />
-          <GridViewColumn Header="Dept. Date" Width="120" DisplayMemberBinding="{Binding Date, StringFormat=Date: {0:YYYY MMMM DD}}" />
-          <GridViewColumn Header="Dept. Time" Width="65" DisplayMemberBinding="{Binding Date, StringFormat=Time: {0:HH:mm}}" />
+          <GridViewColumn Header="Dept. Date" Width="150" DisplayMemberBinding="{Binding DepartureDateTime, StringFormat=Date:{0:dddd, MMMM dd}}" />
+          <GridViewColumn Header="Dept. Time" Width="90" DisplayMemberBinding="{Binding DepartureDateTime, StringFormat=Time:{0:HH:mm}}" />
         </GridView>
       </ListView.View>
     </ListView>

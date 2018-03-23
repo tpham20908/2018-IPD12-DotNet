@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Quiz2Passengers
 {
-    class Passenger
+    public class Passenger
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -25,6 +25,10 @@ namespace Quiz2Passengers
                 if (Regex.IsMatch(value, pattern))
                 {
                     _passport = value;
+                }
+                else
+                {
+                    throw new Exception("Passport must be in this format (AB123456)");
                 }
             }
         }
