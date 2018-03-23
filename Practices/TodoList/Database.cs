@@ -13,9 +13,11 @@ namespace TodoList
 
         public Database()
         {
-            //conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C: \Users\Minh\Documents\TUNG\JAC\JAC Docs\11 - DotNet\2018 - IPD12 - DotNet\Practices\TodoList\Todos.mdf;Integrated Security=True;Connect Timeout=30");
+            conn = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\TP\11-DotNet\2018-IPD12-DotNet\WPF\TodoDBCustDlg\TodoDBCustDlg.mdf;Integrated Security=True;Connect Timeout=30");
+            /*
             conn = new SqlConnection(@"Server = den1.mssql3.gear.host;
             Database = jac; User Id = jac; password = tp%ipd12");
+            */
             conn.Open();
         }
 
