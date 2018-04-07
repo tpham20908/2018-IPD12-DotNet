@@ -8,7 +8,7 @@
         mc:Ignorable="d" Title="Tailor-Mode Tours" Height="700" Width="800" WindowStartupLocation="CenterScreen">
   <StackPanel Margin="10">
     <TextBlock Name="tbName" Text="Tailor-Mode Tours" FontSize="28" FontWeight="Bold" />
-    <TabControl MinHeight="660">
+    <TabControl Height="660">
       <TabItem Header="Tour Stops">
         <views:TourStopsView />
       </TabItem>

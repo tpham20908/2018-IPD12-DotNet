@@ -26,5 +26,13 @@ namespace TailorModeTours.UserControls
             InitializeComponent();
             lbTour.ItemsSource = TourSource.GetAllTourStops();
         }
+
+        private void btnCalculate_Click(object sender, RoutedEventArgs e)
+        {
+            var minute = from t in TourSource.GetAllTourStops()
+                         where t.Selected = true
+                         select t.EstimatedMinutes;
+            tbMinutes.Text = minute.Sum() + "";
+        }
     }
 }

@@ -7,6 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="2*" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
       <ListBox Name="lbTour" ItemTemplate="{StaticResource TourTemplate}"/>
+    <StackPanel Orientation="Horizontal" Grid.Row="1">
+      <Button Name="btnCalculate" Content="Calculate Minutes" Click="btnCalculate_Click" />
+      <TextBlock Name="tbMinutes" />
+    </StackPanel>
     </Grid>
 </UserControl>

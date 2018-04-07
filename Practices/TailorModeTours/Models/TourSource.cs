@@ -18,7 +18,9 @@ namespace TailorMadeTours.Models {
 				Longitude = "-87.624567",
 				Phone = "555-8239",
 				Description = "Start the morning with a jolt of coffee goodness from this trendy shop. Don't miss the Caramel Crater pastry, guaranteed to amp up your morning carb count.",
-				ImageUri = "/Images/Stops/Pastry.jpg"
+				ImageUri = "/Images/Stops/Pastry.jpg",
+                Selected = false,
+                EstimatedMinutes = 15
 
 			});
 
@@ -31,7 +33,9 @@ namespace TailorMadeTours.Models {
 				Phone = "555-3214",
 				Description = "Buckingham Fountain is a Chicago landmark and one of the largest in the world. While in operation, the Fountain produces a 150 foot spectacular water display for 20 minutes every hour."
 				,
-				ImageUri = "/Images/Stops/Fountain.jpg"
+				ImageUri = "/Images/Stops/Fountain.jpg",
+                Selected = true,
+                EstimatedMinutes = 150
 			});
 
 			_tourStops.Add(new TourStop
@@ -44,7 +48,9 @@ namespace TailorMadeTours.Models {
 				Description = "The Art Institute of Chicago is an art museum located in Chicago's Grant Park. It features a collection of Impressionist and Post-Impressionist art in its permanent collection."
 				,
 				ImageUri = "/Images/Stops/ArtInstitute.jpg",
-				BusyTimes = new List<BusyTime>() { new BusyTime { Hour = 9, Rank = 10 } }
+				BusyTimes = new List<BusyTime>() { new BusyTime { Hour = 9, Rank = 10 } },
+                Selected = true,
+                EstimatedMinutes = 25
 			});
 
 			_tourStops.Add(new TourStop
@@ -56,7 +62,9 @@ namespace TailorMadeTours.Models {
 				Phone = "555-2661",
 				Description = "On a good day, Chef Mandro Zekki spins a fantastic lunch scene in her signature café. On a great day you'll swoon over the impeccable lunch entries. Try the Sea Dragon Salad or the Scarlet Blossom Penne"
 				,
-				ImageUri = "/Images/Stops/Lunch.jpg"
+				ImageUri = "/Images/Stops/Lunch.jpg",
+                Selected = false,
+                EstimatedMinutes = 120
 			});
 
 			_tourStops.Add(new TourStop
@@ -68,7 +76,9 @@ namespace TailorMadeTours.Models {
 				Phone = "555-1144",
 				Description = "The iconic Cloud Gate sculpture is a delight for kids and adults alike. Its design was inspired by liquid mercury and the sculpture's surface reflects and distorts the city's skyline. Visitors are able to walk around and under Cloud Gate's high arch."
 				,
-				ImageUri = "/Images/Stops/Cloud.jpg"
+				ImageUri = "/Images/Stops/Cloud.jpg",
+                Selected = true,
+                EstimatedMinutes = 90
 			});
 
 			_tourStops.Add(new TourStop
@@ -80,7 +90,9 @@ namespace TailorMadeTours.Models {
 				Phone = "555-4990",
 				Description = "Lurie Garden is a 2.5-acre (10,000 m2) garden containing a combination of perennials, bulbs, grasses, shrubs and trees. It is the featured nature component of the world's largest green roof."
 				,
-				ImageUri = "/Images/Stops/Garden.jpg"
+				ImageUri = "/Images/Stops/Garden.jpg",
+                Selected = false,
+                EstimatedMinutes = 60
 			});
 
 			_tourStops.Add(new TourStop
@@ -92,7 +104,9 @@ namespace TailorMadeTours.Models {
 				Phone = "555-0098",
 				Description = "Sidle up to this open air pretzel bakery and marvel at the creative knots on display. Served with nearly 100 distinct mustard dipping sauces, you've never seen or tasted pretzels like these."
 				,
-				ImageUri = "/Images/Stops/Pretzel.jpg"
+				ImageUri = "/Images/Stops/Pretzel.jpg",
+                Selected = true,
+                EstimatedMinutes = 135
 			});
 
 
